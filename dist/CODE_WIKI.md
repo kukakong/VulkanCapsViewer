@@ -8,6 +8,7 @@
 - [依赖关系](#依赖关系)
 - [项目运行方式](#项目运行方式)
 - [数据流程](#数据流程)
+- [测试指南](#测试指南)
 
 ---
 
@@ -601,6 +602,50 @@ This code is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
 License version 3 as published by the Free Software Foundation.
 ```
+
+---
+
+## 测试指南
+
+详细的 Android 和 Linux ARM 平台测试说明请参见：
+
+- **测试指南文档**: [TEST_GUIDE.md](./TEST_GUIDE.md)
+- **测试指南HTML**: [TEST_GUIDE.html](./TEST_GUIDE.html)
+
+### 快速开始
+
+#### Android 构建
+```bash
+cd dist
+chmod +x build_android.sh
+./build_android.sh
+```
+
+#### Linux ARM 构建
+```bash
+cd dist
+chmod +x build_linux_arm.sh
+./build_linux_arm.sh
+```
+
+### 支持的架构
+
+| 平台 | 架构 | 输出文件 |
+|------|------|----------|
+| Android | arm64-v8a | VulkanCapsViewer-arm64.apk |
+| Android | armeabi-v7a | VulkanCapsViewer-arm32.apk |
+| Linux | aarch64 | vulkanCapsViewer-arm64 |
+| Linux | armhf | vulkanCapsViewer-arm32 |
+
+### 依赖库位置
+
+#### Android
+- ARM32: `/vendor/lib/egl/libGLES_mali.so`
+- ARM64: `/vendor/lib64/egl/libGLES_mali.so`
+
+#### Linux
+- `/lib/libmali.so` 或 `/lib64/libmali.so`
+- `/usr/lib/libmali.so` 或 `/usr/lib64/libmali.so`
 
 ---
 
